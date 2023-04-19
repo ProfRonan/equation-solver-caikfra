@@ -1,56 +1,40 @@
-[14:42, 14/04/2023] +55 85 8816-0458: from symtable import *
-print("Digite o grau da função")
-N = int(input("> "))
-if N < 1 or N > 2:
+# recebe o grau da equação
+grau = int(input('Digite o grau da equação: '))
+
+# verifica se o grau é válido
+if grau < 1 or grau > 2:
     print("Grau inválido")
 
-if N ==1:
-    print("A equação é do primeiro grau")
-    a = int(input("Digite o número a:"))
-    if a ==0:
-        print("Valor de a inválido")
-    if a !=0:
-        b = int(input("Digite o número b:"))
-        x = Symbol
-        x = -b / a
-        a*x+b==0
-        if -b % a !=0:
-            print("x é igual a",-b,"/",a)
-        if -b % a ==0:
-            print("x é igual a {}".format(x))
-
-if N ==2:
-    print("A equação é do segundo grau")
-    a = int(input("Digite o número a:"))
-    if a ==0:
-        print("Valor de a inválido")
-    if a !=0:
-        b = int(input("Digite o número b:"))
-        c = int(input("Digite o número c:"))
-    …
-[15:20, 18/04/2023] +55 85 8816-0458: print("Quantos primos?")
-F = int(input("> "))
-O = F
-N = 2
-i = 1
-Lista = []
-if F <=0:
-    print("Insira um número maior")
-if F > 0:
-    while True:
-        i = i + 1
-        if N % i !=0:
-            i = i + 1
-        if N % i ==0 and i !=N:
-            N = N + 1
-            i = 1
-        if N % i ==0 and i ==N:
-            F = F - 1
-            i = 1
-            Lista.append(N)
-            if F > 0:
-                N = N + 1
-            if F <=0:
-                F = O
-                print((F),Lista)
-                break
+# grau 1
+else:
+    if grau == 1:
+        print("A equação é do primeiro grau")
+        a = int(input("Digite o valor de a: "))
+        if a == 0:
+            print('Valor de a inválido')
+        else:
+            b = int(input("Digite o valor de b: "))
+            x = -b / a
+            print(f"{x:.2f}")
+        
+    if grau == 2:
+        print("A equação é do segundo grau")
+        a = int(input("Digite o valor de a: "))
+        if a == 0:
+            print('Valor de a inválido')
+        else:
+            b = int(input("Digite o valor de b: "))
+            c = int(input("Digite o valor de c: "))
+            delta = (b**2)-(4*a*c)
+            if delta < 0:
+                print('A equação não possui raízes reais')
+            elif delta == 0:
+                print("A equação possui apenas uma raiz real")
+                x = (-b+delta**0.5)/2*a
+                print(f'X = {x:.2f}')
+            elif delta > 0:
+                x1 = (-b + delta**0.5)/2*a
+                x2 = (-b - delta**0.5)/2*a
+                print("A equação possui duas raízes reais")
+                print(f"{x1:.2f}")
+                print(f'{x2:.2f}')
