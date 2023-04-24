@@ -1,0 +1,106 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.10, pytest-7.3.1, pluggy-1.0.0
+rootdir: /home/seuronao/Documents/Equation Solver-04-24-2023-03-36-22/caikfra
+collected 20 items
+
+test_grau_1.py .......                                                   [ 35%]
+test_grau_2.py .F.....F                                                  [ 75%]
+test_grau_invalido.py .....                                              [100%]
+
+=================================== FAILURES ===================================
+__________________ test_grau_2[test_input0-expected_output0] ___________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fcfc069ea70>
+test_input = []
+expected_output = ['A equação é do segundo grau', 'A equação possui uma raiz real', 'A equação possui apenas uma raiz real', '0.00']
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            (["2", "1", "0", "0"], ["A equação é do segundo grau",
+                                    "A equação possui uma raiz real", "A equação possui apenas uma raiz real", "0.00"]),
+            (["2", "1", "0", "1"], ["A equação é do segundo grau",
+                                    "A equação não possui raízes reais"]),
+            (["2", "1", "0", "-1"], ["A equação é do segundo grau",
+                                     "A equação possui duas raízes reais", "-1.00", "1.00"]),
+            (["2", "1", "1", "0"], ["A equação é do segundo grau",
+                                    "A equação possui duas raízes reais", "-1.00", "0.00"]),
+            (["2", "1", "1", "1"], ["A equação é do segundo grau",
+                                    "A equação não possui raízes reais"]),
+            (["2", "1", "2", "0"], ["A equação é do segundo grau",
+                                    "A equação possui duas raízes reais", "-2.00", "0.00"]),
+            (["2", "2", "0", "0"], ["A equação é do segundo grau",
+                                    "A equação possui uma raiz real", "A equação possui apenas uma raiz real", "0.00"]),
+        ]
+    )
+    def test_grau_2(monkeypatch: MonkeyPatch, test_input: list[str], expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input.pop(0)
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+            importlib.import_module(name="main", package="files")
+    
+        for output in expected_output:
+>           assert output in mocked_stdout.getvalue().strip()
+E           AssertionError: assert 'A equação possui uma raiz real' in 'A equação é do segundo grau\nA equação possui apenas uma raiz real\nX = 0.00'
+E            +  where 'A equação é do segundo grau\nA equação possui apenas uma raiz real\nX = 0.00' = <built-in method strip of str object at 0x7fcfc07ca010>()
+E            +    where <built-in method strip of str object at 0x7fcfc07ca010> = 'A equação é do segundo grau\nA equação possui apenas uma raiz real\nX = 0.00\n'.strip
+E            +      where 'A equação é do segundo grau\nA equação possui apenas uma raiz real\nX = 0.00\n' = <built-in method getvalue of _io.StringIO object at 0x7fcfc06c2440>()
+E            +        where <built-in method getvalue of _io.StringIO object at 0x7fcfc06c2440> = <_io.StringIO object at 0x7fcfc06c2440>.getvalue
+
+test_grau_2.py:64: AssertionError
+__________________ test_grau_2[test_input6-expected_output6] ___________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fcfc0706860>
+test_input = []
+expected_output = ['A equação é do segundo grau', 'A equação possui uma raiz real', 'A equação possui apenas uma raiz real', '0.00']
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            (["2", "1", "0", "0"], ["A equação é do segundo grau",
+                                    "A equação possui uma raiz real", "A equação possui apenas uma raiz real", "0.00"]),
+            (["2", "1", "0", "1"], ["A equação é do segundo grau",
+                                    "A equação não possui raízes reais"]),
+            (["2", "1", "0", "-1"], ["A equação é do segundo grau",
+                                     "A equação possui duas raízes reais", "-1.00", "1.00"]),
+            (["2", "1", "1", "0"], ["A equação é do segundo grau",
+                                    "A equação possui duas raízes reais", "-1.00", "0.00"]),
+            (["2", "1", "1", "1"], ["A equação é do segundo grau",
+                                    "A equação não possui raízes reais"]),
+            (["2", "1", "2", "0"], ["A equação é do segundo grau",
+                                    "A equação possui duas raízes reais", "-2.00", "0.00"]),
+            (["2", "2", "0", "0"], ["A equação é do segundo grau",
+                                    "A equação possui uma raiz real", "A equação possui apenas uma raiz real", "0.00"]),
+        ]
+    )
+    def test_grau_2(monkeypatch: MonkeyPatch, test_input: list[str], expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input.pop(0)
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+            importlib.import_module(name="main", package="files")
+    
+        for output in expected_output:
+>           assert output in mocked_stdout.getvalue().strip()
+E           AssertionError: assert 'A equação possui uma raiz real' in 'A equação é do segundo grau\nA equação possui apenas uma raiz real\nX = 0.00'
+E            +  where 'A equação é do segundo grau\nA equação possui apenas uma raiz real\nX = 0.00' = <built-in method strip of str object at 0x7fcfc07ca470>()
+E            +    where <built-in method strip of str object at 0x7fcfc07ca470> = 'A equação é do segundo grau\nA equação possui apenas uma raiz real\nX = 0.00\n'.strip
+E            +      where 'A equação é do segundo grau\nA equação possui apenas uma raiz real\nX = 0.00\n' = <built-in method getvalue of _io.StringIO object at 0x7fcfc06c36d0>()
+E            +        where <built-in method getvalue of _io.StringIO object at 0x7fcfc06c36d0> = <_io.StringIO object at 0x7fcfc06c36d0>.getvalue
+
+test_grau_2.py:64: AssertionError
+=========================== short test summary info ============================
+FAILED test_grau_2.py::test_grau_2[test_input0-expected_output0] - AssertionE...
+FAILED test_grau_2.py::test_grau_2[test_input6-expected_output6] - AssertionE...
+========================= 2 failed, 18 passed in 0.10s =========================
