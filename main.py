@@ -29,12 +29,13 @@ else:
             if delta < 0:
                 print('A equação não possui raízes reais')
             elif delta == 0:
-                print("A equação possui uma raiz real")
+                print("A equação possui apenas uma raiz real")
+                print('A equação possui uma raiz real')
                 x = (-b+delta**0.5)/2*a
-                print(f'X = {x:.2f}')
+                print(f'{x:.2f}')
             elif delta > 0:
-                x1 = (-b + delta**0.5)/2*a
-                x2 = (-b - delta**0.5)/2*a
+                x1 = (-b - delta**0.5)/2*a
+                x2 = (-b + delta**0.5)/2*a
                 print("A equação possui duas raízes reais")
                 print(f"{x1:.2f}")
                 print(f'{x2:.2f}')
